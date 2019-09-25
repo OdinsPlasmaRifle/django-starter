@@ -11,7 +11,7 @@ from .models import ExampleModel
 logger = getLogger('django')
 
 
-class ListExampleModelView(APIMixin, ListAPIView):
+class ListExampleModelView(ListAPIView):
     permission_classes = (AllowAny, )
     serializer_class = ExampleModelSerializer
 
@@ -19,7 +19,7 @@ class ListExampleModelView(APIMixin, ListAPIView):
         return ExampleModel.objects.all().order_by('created')
 
 
-class RetrieveExampleModelView(APIMixin, RetrieveAPIView):
+class RetrieveExampleModelView(RetrieveAPIView):
     permission_classes = (AllowAny, )
     serializer_class = ExampleModelSerializer
 
